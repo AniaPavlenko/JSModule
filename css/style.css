@@ -1,0 +1,224 @@
+body {
+  font: 14px/140% 'Open Sans', sans-serif;
+  color: #36363c;
+  background-color: #f7f7f5;
+}
+
+input {
+  font: 14px/140% 'Open Sans', sans-serif;
+  border: 1px solid #ccc;
+}
+
+input:focus-visible {
+  border: 1px solid #ccc;
+  box-shadow: 0px 1px 7px 1px #ccc;
+  outline: none;
+}
+
+.main-title {
+  text-align: center;
+  padding-top: 50px;
+  font-size: 24px;
+  margin-bottom: 40px;
+}
+.todo-container {
+  margin: 50px auto;
+  max-width: 450px;
+  position: relative;
+}
+
+.add-new-event {
+  display: block;
+  margin: 0 auto;
+  width: 250px;
+  padding: 10px;
+  border: none;
+  border-radius: 22px;
+  background-color: #40728b;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.add-new-event:hover {
+  background-color: #4b85a2;
+}
+
+.today {
+  color: #40728b;
+  font-weight: 700;
+}
+
+/* ----------time-grid----------*/
+.time-block {
+  border-top: 1px solid #ccc;
+  height: 120px;
+  width: 100%;
+  color: #959595;
+  font-weight: 300;
+}
+
+.hour {
+  height: 50%;
+  width: 44px;
+  font: 16px/140% 'Open Sans';
+}
+.half-hour {
+  height: 50%;
+  width: 44px;
+  font: 12px/140% 'Open Sans';
+}
+
+/* ----------todo----------*/
+.todo {
+  padding: 2px 0 0 2px;
+  width: 200px;
+  border-left: 2px solid #6e9ecf;
+  background-color: #e2ecf5;
+  position: absolute;
+  cursor: pointer;
+}
+
+/* ----------todo-modal----------*/
+.todo-modal {
+  display: block;
+  padding: 20px;
+  width: 400px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 1px 7px 1px #ccc;
+  background-color: #f9f9fb;
+  position: fixed;
+  top: 100px;
+  right: 100px;
+}
+
+.modal-detail {
+  margin-bottom: 40px;
+}
+.todo-modal-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.todo-modal-start,
+.todo-modal-end {
+  display: inline-block;
+}
+
+.modal-buttons-block {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.modal-confirm,
+.modal-reject,
+.modal-edit {
+  padding: 8px;
+  width: 100px;
+  border: none;
+  border-radius: 15px;
+  color: #f9f9fb;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.modal-confirm {
+  background-color: #2d5b48;
+}
+
+.modal-confirm:hover {
+  background-color: #3a7b60;
+}
+
+.modal-reject {
+  background-color: #9d636a;
+}
+.modal-reject:hover {
+  background-color: #b97b83;
+}
+
+.modal-edit {
+  background-color: #868b94;
+}
+
+.modal-edit:hover {
+  background-color: #a3a9b6;
+}
+
+.done {
+  text-decoration: line-through;
+  background-color: #dedfe1;
+  border-color: #959595;
+  color: #959595;
+}
+
+/* ----------add new-task----------*/
+.add-new-task {
+  display: block;
+  padding: 20px;
+  width: 400px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: 0px 1px 7px 1px #ccc;
+  background-color: #f9f9fb;
+  position: fixed;
+  top: 100px;
+  right: 100px;
+  z-index: 2;
+}
+
+.modal-add-new-title {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.modal-add-new-title,
+.input-name {
+  margin-bottom: 20px;
+}
+
+::placeholder {
+  text-align: center;
+  color: #959595;
+  opacity: 0.7;
+}
+
+.add-new-task-btns {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-add-new,
+.btn-cancel-new {
+  margin: 0 18px;
+}
+
+.event-title {
+  margin-right: 20px;
+}
+.event-start {
+  margin-right: 16px;
+}
+.event-finish {
+  margin-right: 11px;
+}
+
+.input-title {
+  padding: 5px 44px;
+}
+
+.add-new-task-time-inputs input {
+  padding: 4px 78px;
+}
+
+.add-new-task-time-inputs :last-child {
+  margin-bottom: 20px;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>ModuleJS</title>
+  </head>
+  <body>
+    <h1 class="main-title">TO DO LIST FOR <span class="today">today</span></h1>
+    <button class="add-new-event">ADD</button>
+    <div class="todo-container"></div>
+
+    <div class="todo-modal hidden"></div>
+
+    <div class="add-new-task hidden">
+      <h3 class="modal-add-new-title">Add new task</h3>
+      <form action="#">
+        <div class="input-name">
+          <label class="event-title">title</label>
+          <input
+            placeholder="enter task title"
+            id="title"
+            class="input-title"
+            type="text"
+          />
+        </div>
+        <div class="add-new-task-time-inputs">
+          <div class="input-start">
+            <label class="event-start">start</label>
+            <input id="start" class="input-start" type="time" />
+          </div>
+          <div class="input-finish">
+            <label class="event-finish">finish</label>
+            <input id="finish" class="input-finish" type="time" />
+          </div>
+        </div>
+        <div class="add-new-task-btns">
+          <button class="modal-confirm btn-add-new">add</button>
+          <button class="modal-reject btn-cancel-new">cancel</button>
+        </div>
+      </form>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
