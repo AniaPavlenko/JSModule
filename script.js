@@ -220,7 +220,7 @@ const addNewTask = (function () {
 
     if (startTime > 0 && finishTime < 540) {
       let addedTask = {
-        start: startTime || 0,
+        start: startTime ?? 0,
         duration: finishTime - startTime || 540,
         title: inputTitle.value,
       };
