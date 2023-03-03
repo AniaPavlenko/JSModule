@@ -108,7 +108,7 @@ const taskRender = function (arr) {
     for (let el in tasks) {
       if (
         (task.finish > tasks[el].start && task.start < tasks[el].start) ||
-        (task.finish > tasks[el].start && task.finish < tasks[el].finish)
+        (task.end > tasks[el].start && task.end < tasks[el].end)
       ) {
         task.width = 200;
         tasks[el].width = 200;
@@ -138,6 +138,7 @@ taskRender(tasksList);
 const taskModal = function () {
   const todos = document.querySelectorAll('.todo');
   const todoModal = document.querySelector('.todo-modal');
+  const todosArr = Array.from(todos);
 
   todos.forEach(function (todo) {
     let duration = Number(todo.style.height.replace('px', ''));
@@ -177,26 +178,24 @@ const taskModal = function () {
         todo.classList.toggle('done');
       });
 
-      // function for deleting task from arr
-      const deleteTask = function (id) {
-        const index = tasksList.findIndex(task => task.id === id);
-        if (index == -1) {
-          tasksList.splice(index, 1);
-        }
-      };
-
-      // button delete
-      const modalBtnDelete = document.querySelector('.modal-reject');
-      modalBtnDelete.addEventListener('click', () => {
-        todoModal.classList.add('hidden');
-        deleteTask();
-        todo.remove();
-      });
-
-      // button close
       const modalBtnClose = document.querySelector('.modal-close');
       modalBtnClose.addEventListener('click', () => {
         todoModal.classList.add('hidden');
+      });
+
+      const modalBtnDelete = document.querySelector('.modal-reject');
+      modalBtnDelete.addEventListener('click', () => {
+        todoModal.classList.add('hidden');
+        todo.remove();
+        const index = tasksList.findIndex(
+          task => task.title === todo.textContent
+        );
+        tasksList.splice(index, 1);
+        const todoIndex = todosArr.indexOf(todo);
+        todosArr.splice(todoIndex, 1);
+        let aa = todosArr.map(a => a.firstElementChild.innerText);
+        console.log(aa);
+        console.log(tasksList, todosArr);
       });
     });
   });
@@ -244,3 +243,7 @@ const addNewTask = (function () {
     }
   });
 })();
+
+// Я виправила роботу кнопки видалення таску в початковому масиві. Також трошки виправила функціонал кнопки додавання нового таску, модалка вже працює.
+// Але на жаль, мені не вдалось виправити роботу кнопки видалення, після того як був доданий новий таск, я знаю де проблема, але виправити не можу. Тому пішла вчити JS :)
+// Так, це говнокод, але я намагалась його зробити краще.
