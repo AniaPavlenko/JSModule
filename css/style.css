@@ -116,7 +116,7 @@ input:focus-visible {
 
 .modal-confirm,
 .modal-reject,
-.modal-edit {
+.modal-close {
   padding: 8px;
   width: 100px;
   border: none;
@@ -141,11 +141,11 @@ input:focus-visible {
   background-color: #b97b83;
 }
 
-.modal-edit {
+.modal-close {
   background-color: #868b94;
 }
 
-.modal-edit:hover {
+.modal-close:hover {
   background-color: #a3a9b6;
 }
 

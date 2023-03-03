@@ -107,10 +107,8 @@ const taskRender = function (arr) {
     //setting up conditionals for todo`s width and left margin
     for (let el in tasks) {
       if (
-        task.finish > tasks[el].start &&
-        task.start < tasks[el].start
-        // ||
-        // (task.end > tasks[el].start && task.end < tasks[el].end)
+        (task.finish > tasks[el].start && task.start < tasks[el].start) ||
+        (task.finish > tasks[el].start && task.finish < tasks[el].finish)
       ) {
         task.width = 200;
         tasks[el].width = 200;
@@ -134,10 +132,10 @@ const taskRender = function (arr) {
     return todo;
   });
 };
-taskRender();
+taskRender(tasksList);
 
 // short modal with some functionality
-const taskModal = (function () {
+const taskModal = function () {
   const todos = document.querySelectorAll('.todo');
   const todoModal = document.querySelector('.todo-modal');
 
@@ -169,7 +167,7 @@ const taskModal = (function () {
         <div class="modal-buttons-block">
           <button class="modal-confirm" class="done">done</button>
           <button class="modal-reject">delete</button>
-          <button class="modal-edit">edit</button>
+          <button class="modal-close">close</button>
         </div>
       `;
 
@@ -179,15 +177,31 @@ const taskModal = (function () {
         todo.classList.toggle('done');
       });
 
+      // function for deleting task from arr
+      const deleteTask = function (id) {
+        const index = tasksList.findIndex(task => task.id === id);
+        if (index == -1) {
+          tasksList.splice(index, 1);
+        }
+      };
+
       // button delete
       const modalBtnDelete = document.querySelector('.modal-reject');
       modalBtnDelete.addEventListener('click', () => {
         todoModal.classList.add('hidden');
+        deleteTask();
         todo.remove();
+      });
+
+      // button close
+      const modalBtnClose = document.querySelector('.modal-close');
+      modalBtnClose.addEventListener('click', () => {
+        todoModal.classList.add('hidden');
       });
     });
   });
-})();
+};
+taskModal();
 
 // btn for adding new task
 const addNewTask = (function () {
@@ -218,7 +232,7 @@ const addNewTask = (function () {
     let startTime = (startHour - 8) * 60 + startMinute;
     let finishTime = (finishHour - 8) * 60 + finishMinute;
 
-    if (startTime > 0 && finishTime < 540) {
+    if (startTime >= 0 && finishTime <= 540) {
       let addedTask = {
         start: startTime ?? 0,
         duration: finishTime - startTime || 540,
@@ -226,6 +240,7 @@ const addNewTask = (function () {
       };
       tasksList.push(addedTask);
       taskRender(tasksList);
+      taskModal();
     }
   });
 })();
